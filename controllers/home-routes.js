@@ -1,9 +1,9 @@
 
 
 /* 
-    /
-    /post/:id
-    /login
+    /           - all posts
+    /post/:id   - single post
+    /login      - login page
 */
 
 const router = require('express').Router();
