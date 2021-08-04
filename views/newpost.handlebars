@@ -1,19 +1,18 @@
-<div class="row">
-  <div class="col-md-6">
+  <div class="col-md-12">
     <h2>New Post</h2>
 
-    <form class="form login-form">
+    <form class="form post-form">
       <div class="form-group">
-        <label for="title">Title:</label>
-        <input class="form-input" type="text" id="title" />
+        <label for="post-title">Title:</label>
+        <input class="form-input" type="text" id="post-title" />
       </div>
       <div class="form-group">
-        <label for="body">body:</label>
-        <input class="form-input" type="text" id="body" />
+        <label for="post-body">body:</label>
+        <input class="form-input" type="text" id="post-body" />
       </div>
       <div class="form-group">
-        <button class="btn btn-primary" type="create">create post</button>
+        <a href="/dashboard"><button class="btn btn-primary" type="submit">create post</button></a>
       </div>
     </form>
   </div>
-</div>
+<script src="/js/newpost.js"></script>

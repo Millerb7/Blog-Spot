@@ -1,24 +1,24 @@
 const newPostHandler = async (event) => {
     event.preventDefault();
-  
-    const username = document.querySelector('#username-login').value.trim();
-    const password = document.querySelector('#password-login').value.trim();
-  
-    if (username && password) {
-      const response = await fetch('/api/user/login/', {
+  console.log('in the function');
+    const title = document.querySelector('#post-title').value.trim();
+    const body = document.querySelector('#post-body').value.trim();
+  console.log('befgore post');
+    if (title && body) {
+      const response = await fetch('/api/post/', {
         method: 'POST',
-        body: JSON.stringify({ username, password }),
+        body: JSON.stringify({ title, body }),
         headers: { 'Content-Type': 'application/json' },
       });
-  
+      console.log('post post');
       if (response.ok) {
-        document.location.replace('/');
+        document.location.replace('/dashboard');
       } else {
-        alert('Failed to log in.');
+        console.log('failed to view post');
       }
     }
   };
 
   document
-  .querySelector('.new-post')
+  .querySelector('.post-form')
   .addEventListener('submit', newPostHandler);

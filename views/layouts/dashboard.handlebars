@@ -17,7 +17,7 @@
     {{#if logged_in}}
       <a href="/login"><button class="btn" id="logoutBtn">logout</button></a>
       <a href="/"><button class="btn" id="homeBtn">Home Page</button></a>
-      <a href="/newpost"><button class="btn" id="newBtn">Create Post</button></a>
+      <a href="/dashboard/newpost"><button class="btn" id="newBtn">Create Post</button></a>
     {{else}}
       <a href="/login"><button class="btn" id="loginBtn">login</button></a>
     {{/if}}
@@ -31,11 +31,9 @@
       
   </footer>
 
-  {{#if logged_in}}
   <script src="/js/logout.js"></script>
-  {{else}}
   <script src="/js/login.js"></script>
-  {{/if}}
+
   <script src="/js/buttons.js"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>

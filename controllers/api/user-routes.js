@@ -8,6 +8,7 @@
 
 const router = require('express').Router();
 const { User } = require('../../models');
+const withAuth = require("../../utils/auth");
 
 router.get("/", async (req,res) => {
   try {
@@ -66,13 +67,9 @@ router.post('/login', async (req, res) => {
 
 // logs user out and destroys the current session
 router.post('/logout', (req, res) => {
-  if (req.session.logged_in) {
     req.session.destroy(() => {
       res.status(204).end();
     });
-  } else {
-    res.status(404).end();
-  }
 });
 
 module.exports = router;
