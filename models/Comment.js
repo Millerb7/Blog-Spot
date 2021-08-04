@@ -26,7 +26,7 @@ Comment.init(
         type: DataTypes.STRING,
         references: {
         model: 'post',
-        key: 'title',
+        key: 'id',
       },
     },
   },
