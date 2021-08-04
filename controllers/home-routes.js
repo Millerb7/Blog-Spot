@@ -29,7 +29,8 @@ router.get('/', async (req, res) => {
 
     res.render('homepage', { 
       posts, 
-      logged_in: req.session.logged_in 
+      logged_in: req.session.logged_in,
+      layout: "main.handlebars",
     });
   } catch (err) {
     res.status(500).json(err);
@@ -55,7 +56,8 @@ router.get('/post/:id', async (req, res) => {
 
     res.render('singlepost', {
       ...post,
-      logged_in: req.session.logged_in
+      logged_in: req.session.logged_in,
+      layout: "main.handlebars",
     });
   } catch (err) {
     res.status(500).json(err);
@@ -64,7 +66,7 @@ router.get('/post/:id', async (req, res) => {
 
 router.get('/login', !withAuth, (req, res) => {
   // If the user is already logged in, redirect the request to another route
-  res.render('login');
+  res.render("login", { posts, layout: "main.handlebars" });
 });
 
 module.exports = router;

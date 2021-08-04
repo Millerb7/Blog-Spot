@@ -23,7 +23,7 @@ router.get('/', withAuth, async (req,res) => {
         });
         if(postData) {
             const posts = postData.map((post) => post.get({ plain: true }));
-            res.status(200).render('homeadmin', { posts, logged_in: req.session.logged_in });
+            res.status(200).render('homeadmin', { posts, logged_in: req.session.logged_in, layout: "dashboard.handlebars"  });
         } else {
             res.status(400).json('No posts');
         }
@@ -35,7 +35,7 @@ router.get('/', withAuth, async (req,res) => {
 // opens the new post handlebars view to create a new post
 router.get('/new', async (req,res) => {
     try {
-        res.status(200).render('newpost');
+        res.status(200).render('newpost', { logged_in: req.session.logged_in, layout: "dashboard.handlebars" });
     } catch(err) {
         res.status(500).json(err);
     }
@@ -59,7 +59,7 @@ router.get('/edit/:id', withAuth, async (req,res) => {
 
         if(postData) {  
             const post = postData.get({ plain: true });
-            res.status(200).render('editpost', { post, logged_in: req.session.logged_in } );
+            res.status(200).render('editpost', { post, logged_in: req.session.logged_in, layout: "dashboard.handlebars" } );
         } else {
             res.status(400).json('Post could not be found!');
         }
