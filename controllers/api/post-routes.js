@@ -6,15 +6,18 @@
     /:id
 */
 const router = require('express').Router();
-const { Post } = require('../../models');
+const { Post, User } = require('../../models');
 const withAuth = require("../../utils/auth");
 
 router.post('/', withAuth, async (req, res) => {
     try {
-      const postData = await Post.create(req.body);
-  
+    User.findByPk(req.session.user_id).then((res) => {console.log(res.username);});
+      const postData = await Post.create({
+          ...req.body,
+          user_id: req.session.user_id
+      });
+
       req.session.save(() => {
-        req.session.user_id = postData.user_id;
         req.session.logged_in = true;
         req.session.post_id = postData.id;
   

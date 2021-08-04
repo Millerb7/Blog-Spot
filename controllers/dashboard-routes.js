@@ -18,7 +18,7 @@ router.get('/', withAuth, async (req,res) => {
             },
             include: {
                 model: User,
-                attributes: ['name'],
+                attributes: ['username'],
             },
         });
         if(postData) {
@@ -48,7 +48,7 @@ router.get('/edit/:id', withAuth, async (req,res) => {
             include: [
                 {
                     model: User,
-                    attributes: ['name'],
+                    attributes: ['username'],
                 },
                 {
                     model: Comment,

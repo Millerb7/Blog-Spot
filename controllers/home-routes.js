@@ -15,17 +15,15 @@ router.get('/', async (req, res) => {
       include: [
         {
             model: User,
-            attributes: ['username'],
         },
         {
             model: Comment,
-            attributes: ['body'],
         },
       ],
     });
 
     const posts = postData.map((post) => post.get({ plain: true }));
-
+    console.log(posts);
     res.render('homepage', { 
       posts, 
       logged_in: req.session.logged_in,
@@ -65,7 +63,7 @@ router.get('/post/:id', async (req, res) => {
 
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
-  res.render("login", { posts, layout: "main.handlebars" });
+  res.render("login", { layout: "main.handlebars" });
 });
 
 module.exports = router;

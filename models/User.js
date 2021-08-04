@@ -27,10 +27,6 @@ User.init(
         len: [8],
       },
     },
-    title: {
-        type: DataTypes.STRING,
-        allowNull: false,
-    },
   },
   {
     hooks: {
