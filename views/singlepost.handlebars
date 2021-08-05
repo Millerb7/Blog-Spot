@@ -4,10 +4,28 @@
       <div class="">
         <p for="body">{{body}}</p>
       </div>
-      {{#if user_id}}
-      <div class="form-group">
-        <a href="/edit/{{id}}"><button class="btn btn-primary" type="create">edit post</button></a>
-      </div>
+      {{#if is_owner}}
+        <a href="/edit/{{id}}"><button class="btn btn-primary" type="click">Edit Post</button></a>
       {{/if}}
+
+      {{#if comments}}
+        {{#each comments as |comment|}}
+          <p>{{user.username}}</p>
+          <p>{{body}}</p>
+        {{/each}}
+      {{/if}}
+
+      {{#if logged_in}}
+      <form class="form comment-form">
+        <div class="form-group">
+            <label for="comment-body">add comment:</label>
+            <input class="form-input" type="text" id="comment-body">
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary" type="submit">Post Comment</button>
+        </div>
+    </form>
+    {{/if}}
   </div>
 </div>
+<script src="/js/comment.js"></script>
