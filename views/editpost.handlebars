@@ -1,15 +1,15 @@
 <div class="row">
-  <div class="col-md-6">
+  <div class="col-md-12">
     <h2>Editing Post</h2>
 
     <form class="form update-form p-4">
       <div class="form-group">
-        <label for="update-title">Title: </label>
-        <input value="{{post.title}}" class="form-input" type="text" id="update-title" />
+        <label class="text-center" for="update-title">Title: </label><br>
+        <textarea class="form-input col-md-12" id="update-title">{{post.title}}</textarea>
       </div>
       <div class="form-group">
-        <label for="update-body">body:</label>
-        <input value="{{post.body}}" class="form-input" type="text" id="update-body" />
+        <label class="text-center" for="update-body">body:</label><br>
+        <textarea class="form-input col-md-12" id="update-body">{{post.body}}</textarea>
       </div>
       <div class="form-group">
         <a href="/post/{{post.id}}"><button class="btn" type="submit">Save Changes</button></a>
