@@ -2,18 +2,20 @@
   <div class="col-md-6">
     <h2>Editing Post</h2>
 
-    <form class="form login-form">
+    <form class="form update-form">
       <div class="form-group">
-        <label for="title">Title:</label>
-        <input class="form-input" type="text" id="title">{{title}}</input>
-      </div>
-      <input class="form-group">
-        <label for="body">body:</label>
-        <input class="form-input" type="text" id="body">{{body}}</input>
+        <label for="update-title">Title: </label>
+        <input value="{{post.title}}" class="form-input" type="text" id="update-title" />
       </div>
       <div class="form-group">
-        <button class="btn btn-primary" type="create">Save Changes</button>
+        <label for="update-body">body:</label>
+        <input value="{{post.body}}" class="form-input" type="text" id="update-body" />
+      </div>
+      <div class="form-group">
+        <a href="/post/{{post.id}}"><button class="btn btn-primary" type="submit">Save Changes</button></a>
       </div>
     </form>
   </div>
 </div>
+
+<script src="/js/update.js"></script>

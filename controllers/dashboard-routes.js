@@ -66,31 +66,4 @@ router.get('/edit/:id', withAuth, async (req,res) => {
     }
 });
 
-// opens the singlepost handlebars view to see any post by id
-router.get('/post/:id', withAuth, async (req,res) => {
-    try {
-        const postData = await Post.findByPk(req.params.id, {
-            include: [
-                {
-                    model: User,
-                },
-                {
-                    model: Comment,
-                },
-            ]   
-        });
-
-        if(postData) {  
-            const post = postData.get({ plain: true });
-            
-            res.status(200).render('singlepost', { post, is_owner: req.session.id === post.user.id, logged_in: req.session.logged_in, layout: "dashboard.handlebars" } );
-        } else {
-            res.status(400).json('Post could not be found!');
-        }
-        
-    } catch(err) {
-        res.status(500).json(err);
-    }
-});
-
 module.exports = router;

@@ -5,7 +5,7 @@
         <p for="body">{{body}}</p>
       </div>
       {{#if is_owner}}
-        <a href="/edit/{{id}}"><button class="btn btn-primary" type="click">Edit Post</button></a>
+        <a href="/dashboard/edit/{{id}}"><button class="btn btn-primary" type="click">Edit Post</button></a>
       {{/if}}
 
       {{#if comments}}
@@ -24,7 +24,7 @@
         <div class="form-group">
             <button class="btn btn-primary" type="submit">Post Comment</button>
         </div>
-    </form>
+      </form>
     {{/if}}
   </div>
 </div>

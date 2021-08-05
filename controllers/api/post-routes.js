@@ -30,13 +30,16 @@ router.post('/', withAuth, async (req, res) => {
 router.put('/:id', withAuth, async (req,res) => {
     try {
         const postData = await Post.update(
+            {
+                body: req.body.body,
+                title: req.body.title,
+                user_id: req.session.user_id,
+            },
             {where: {id: req.params.id}},
-            {body: req.body.body},
-            {title: req.body.title}
         );
 
         if(postData) {
-            res.status(200).json('data updated');
+            res.status(200).json(postData);
         } else {
             res.status(404).json('data incorrect');
         }

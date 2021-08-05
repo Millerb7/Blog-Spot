@@ -55,6 +55,7 @@ router.get('/post/:id', async (req, res) => {
 
     res.render('singlepost', {
       ...post,
+      is_owner: req.session.user_id === post.user_id,
       logged_in: req.session.logged_in,
       layout: "main.handlebars",
     });
