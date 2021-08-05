@@ -2,7 +2,7 @@
   <div class="col-md-6">
     <h2>Editing Post</h2>
 
-    <form class="form update-form">
+    <form class="form update-form p-4">
       <div class="form-group">
         <label for="update-title">Title: </label>
         <input value="{{post.title}}" class="form-input" type="text" id="update-title" />
@@ -12,7 +12,7 @@
         <input value="{{post.body}}" class="form-input" type="text" id="update-body" />
       </div>
       <div class="form-group">
-        <a href="/post/{{post.id}}"><button class="btn btn-primary" type="submit">Save Changes</button></a>
+        <a href="/post/{{post.id}}"><button class="btn" type="submit">Save Changes</button></a>
       </div>
     </form>
   </div>
