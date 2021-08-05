@@ -20,6 +20,26 @@ const updateHandler = async (event) => {
     }
   };
 
+const deleteHandler = async (event) => {
+    event.preventDefault();
+
+    const post_id = window.location.href.toString().split("/").pop();
+    const response = await fetch(`/api/post/${post_id}`, {
+        method: 'DELETE',
+      });
+
+      if(response.ok) {
+          alert("post was deleted!");
+          document.location.replace("/dashboard");
+      } else {
+          alert("Could not delete post!");
+      }
+  };
+
   document
   .querySelector('.update-form')
   .addEventListener('submit', updateHandler);
+
+  document
+  .querySelector('#deleteBtn')
+  .addEventListener('click', deleteHandler);

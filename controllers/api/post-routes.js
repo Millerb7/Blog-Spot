@@ -53,12 +53,11 @@ router.delete('/:id', withAuth, async (req,res) => {
         const postData = await Post.destroy({
           where: {
             id: req.params.id,
-            user_id: req.session.user_id,
           },
         });
     
         if (postData) {
-            res.status(200).json(projectData);
+            res.status(200).json(postData);
         } else {
             res.status(404).json({ message: 'No project found with this id!' });
         }
